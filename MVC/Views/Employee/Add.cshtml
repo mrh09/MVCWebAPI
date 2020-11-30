@@ -1,0 +1,43 @@
+﻿@model MVC.Models.EmployeeModel
+@{
+    ViewBag.Title = "Add";
+}
+
+<h2>Add</h2>
+
+<div class="form-body">
+    @using (Html.BeginForm())
+    {
+        @Html.HiddenFor(model => model.EmployeeId)
+
+        <div class="form-horizontal">
+            <h4>Add Profile</h4>
+            <hr />
+            <div class="form-group">
+                @Html.EditorFor(model => model.Name)
+                @Html.ValidationMessageFor(model => model.Name)
+                <div class="col-md-2">
+                    @Html.LabelFor(model => model.Name)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.EditorFor(model => model.Division)
+                @Html.ValidationMessageFor(model => model.Division)
+                <div class="col-md-2">
+                    @Html.LabelFor(model => model.Division)
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Save" class="btn button" />
+        </div>
+    }
+
+</div>
+
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval");
+}
